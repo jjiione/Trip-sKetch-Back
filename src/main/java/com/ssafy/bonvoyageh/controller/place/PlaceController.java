@@ -21,11 +21,6 @@ public class PlaceController {
         this.placeService = placeService;
     }
 
-    @PutMapping("/{route}/modify")
-    public String plans() {
-        //Todo
-        return "mypage/plans";
-    }
 
     @GetMapping("/search")
     public List<PlaceDto> searchKeyword(@RequestParam String keyword) {
@@ -41,34 +36,22 @@ public class PlaceController {
         return list;
     }
 
-    @PostMapping("/register/route")
-    public String makeRoute(){
-        //Todo
-        return "mypage/plans";
-    }
 
-    @DeleteMapping("/{placeId}/delete")
-    public String deleteRoute(@PathVariable("placeid") String placeId){
+    @PostMapping("/review/regist")
+    public ReviewDto writeReview(ReviewDto reviewDto){
         //Todo
-        return "mypage/plans";
-    }
-
-    @PostMapping("/review/write")
-    public String writeReview(ReviewDto reviewDto){
-        //Todo
-        return "mypage/plans";
+        return reviewDto;
     }
 
     @DeleteMapping("/review/{reviewId}/delete")
-    public String deleteReview(@PathVariable("reviewId") String reviewId){
-        //Todo
-        return "mypage/plans";
+    public void deleteReview(@PathVariable("reviewId") String reviewId){
+
     }
 
     @PutMapping("/review/{reviewId}/modify")
-    public String modifyReview(@PathVariable("reviewId") String reviewId, ReviewDto reviewDto){
-        //Todo
-        return "mypage/plans";
+    public ReviewDto modifyReview(@PathVariable("reviewId") String reviewId, ReviewDto reviewDto){
+
+        return reviewDto;
     }
 
 }
