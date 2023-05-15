@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan(basePackages = "com.ssafy.bonvoyageh.repository")
+@MapperScan(basePackages = "com.ssafy.bonvoyageh")
 public class BonvoyageHApplication {
 
 	public static void main(String[] args) {
