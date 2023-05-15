@@ -1,4 +1,4 @@
-package com.ssafy.bonvoyageh.repository.user;
+package com.ssafy.bonvoyageh.model.user;
 
 public class UserDto {
 	private String user_id;
