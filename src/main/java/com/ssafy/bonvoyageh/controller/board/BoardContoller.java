@@ -2,7 +2,6 @@ package com.ssafy.bonvoyageh.controller.board;
 
 import com.ssafy.bonvoyageh.model.board.BoardDto;
 import com.ssafy.bonvoyageh.model.board.CommentDto;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

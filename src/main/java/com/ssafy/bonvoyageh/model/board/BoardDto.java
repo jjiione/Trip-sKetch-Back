@@ -9,15 +9,15 @@ public class BoardDto {
 
 	private int articleNo;
 	private String userId;
-	private String subject;
+	private String title;
 	private String content;
 	private int hit;
-	private String registerTime;
+	private String createtime;
 	private List<FileInfoDto> fileInfos;
 	@Override
 	public String toString() {
-		return "BoardDto [articleNo=" + articleNo + ", userId=" + userId + ", subject=" + subject + ", content="
-				+ content + ", hit=" + hit + ", registerTime=" + registerTime + "]";
+		return "BoardDto [articleNo=" + articleNo + ", userId=" + userId + ", subject=" + title + ", content="
+				+ content + ", hit=" + hit + ", registerTime=" + createtime + "]";
 	}
 
 }

@@ -7,11 +7,10 @@
 	<resultMap type="boardDto" id="article">
 		<result column="article_no" property="articleNo"/>
 		<result column="user_id" property="userId"/>
-		<result column="user_name" property="userName"/>
-		<result column="subject" property="subject"/>
+		<result column="title" property="title"/>
 		<result column="content" property="content"/>
 		<result column="hit" property="hit"/>
-		<result column="register_time" property="registerTime"/>
+		<result column="createtime" property="createtime"/>
 	</resultMap>
 
 	<resultMap type="boardDto" id="viewArticle" extends="article">
@@ -25,8 +24,8 @@
 	</resultMap>
 
 	<insert id="writeArticle" parameterType="boardDto">
-		insert into board (user_id, subject, content, hit, register_time)
-		values (#{userId}, #{subject}, #{content}, 0, now())
+		insert into community (title, content, user_id, hit, createtime)
+		values (#{title}, #{content}, #{userId}, 0, now())
 		<selectKey resultType="int" keyProperty="articleNo" order="AFTER">
 			select last_insert_id()
 		</selectKey>

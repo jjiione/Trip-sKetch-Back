@@ -15,10 +15,12 @@ public class PlanController {
     }
 
     // plan 보기
-    @GetMapping("/{planId}/delete")
-    public
+    @GetMapping("/{planId}/view")
+    public void viewPlan(@RequestParam int planId){
+
+    }
     @DeleteMapping("/{planId}/delete")
-    public void planDetele(@RequestParam int planId){
+    public void deletePlan(@RequestParam int planId){
 
     }
 
