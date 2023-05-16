@@ -7,7 +7,7 @@ import java.util.List;
 @Data
 public class BoardDto {
 
-	private int articleNo;
+	private int articleId;
 	private String userId;
 	private String title;
 	private String content;
@@ -16,8 +16,8 @@ public class BoardDto {
 	private List<FileInfoDto> fileInfos;
 	@Override
 	public String toString() {
-		return "BoardDto [articleNo=" + articleNo + ", userId=" + userId + ", subject=" + title + ", content="
-				+ content + ", hit=" + hit + ", registerTime=" + createtime + "]";
+		return "BoardDto [articleId=" + articleId + ", userId=" + userId + ", title=" + title + ", content="
+				+ content + ", hit=" + hit + ", createtime=" + createtime + "]";
 	}
 
 }

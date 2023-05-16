@@ -1,6 +1,5 @@
 package com.ssafy.bonvoyageh.service.user;
 
-import java.util.List;
 import java.util.Map;
 
 import com.ssafy.bonvoyageh.model.user.UserDto;
@@ -40,8 +39,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public int updatePw(Map<String, String> map) throws Exception {
-		return userDao.updatePw(map);
+	public void updatePw(Map<String, String> map) throws Exception {
+		userDao.updatePw(map);
 	}
 
 //	/* ADMIN */

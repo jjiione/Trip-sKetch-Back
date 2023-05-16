@@ -9,7 +9,7 @@ public interface UserService {
 	int idCheck(String userId) throws Exception;
 	void join(UserDto userDto) throws Exception;
 	UserDto login(Map<String, String> map) throws Exception;
-	int updatePw(Map<String, String> map) throws Exception;
+	void updatePw(Map<String, String> map) throws Exception;
 	/* Admin */
 //	List<UserDto> listMember(Map<String, Object> map) throws Exception;
 	UserDto getUser(String userId) throws Exception;

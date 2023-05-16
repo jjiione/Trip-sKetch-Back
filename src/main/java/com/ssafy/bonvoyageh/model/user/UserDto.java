@@ -1,8 +1,8 @@
 package com.ssafy.bonvoyageh.model.user;
 
 public class UserDto {
-    private String user_id;
-    private String user_pwd;
+    private String userId;
+    private String userPwd;
     private String email;
     private String name;
     private String birth;
@@ -10,6 +10,31 @@ public class UserDto {
     private String question;
     private String answer;
     private String authorization;
+    private String createTime;
+
+    public String getUserPwd() {
+        return userPwd;
+    }
+
+    public void setUserPwd(String userPwd) {
+        this.userPwd = userPwd;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
+    }
 
     public String getQuestion() {
         return question;
@@ -66,21 +91,4 @@ public class UserDto {
     public void setBirth(String birth) {
         this.birth = birth;
     }
-
-    public String getId() {
-        return user_id;
-    }
-
-    public void setId(String user_id) {
-        this.user_id = user_id;
-    }
-
-    public String getPw() {
-        return user_pwd;
-    }
-
-    public void setPw(String user_pwd) {
-        this.user_pwd = user_pwd;
-    }
-
 }
