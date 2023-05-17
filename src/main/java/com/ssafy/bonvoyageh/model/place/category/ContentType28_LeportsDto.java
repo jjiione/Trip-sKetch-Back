@@ -1,6 +1,6 @@
 package com.ssafy.bonvoyageh.model.place.category;
 
-public class ContentType28_ReportsDto {
+public class ContentType28_LeportsDto {
     String contentid;
     String contenttypeid;
     String openperiod;

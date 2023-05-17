@@ -1,6 +1,6 @@
 package com.ssafy.bonvoyageh.repository.place;
 
-import com.ssafy.bonvoyageh.model.place.PlaceDetilaDto;
+import com.ssafy.bonvoyageh.model.place.PlaceDetailDto;
 import com.ssafy.bonvoyageh.model.place.PlaceDto;
 import com.ssafy.bonvoyageh.model.review.ReviewDto;
 import org.apache.ibatis.annotations.Mapper;
@@ -13,7 +13,7 @@ import java.util.List;
 public interface PlaceDao {
     List<PlaceDto> searchKeyword(String keyword) throws SQLException;
 
-    List<PlaceDetilaDto> searchDetail(int placeId)throws SQLException;
+    List<PlaceDetailDto> searchDetail(int placeId)throws SQLException;
 
     ReviewDto writeReview(ReviewDto reviewDto) throws SQLException;
 

@@ -1,6 +1,6 @@
 package com.ssafy.bonvoyageh.model.place.category;
 
-public class ContentType32_AccomodationDto {
+public class ContentType32_AccommodationDto {
     String contentid;
     String contenttypeid;
     String goodstay;

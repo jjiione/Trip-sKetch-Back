@@ -1,4 +1,4 @@
 package com.ssafy.bonvoyageh.model.place;
 
-public class PlaceDetilaDto {
+public class PlaceDetailDto {
 }

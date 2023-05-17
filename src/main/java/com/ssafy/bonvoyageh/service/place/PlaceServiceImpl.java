@@ -1,6 +1,6 @@
 package com.ssafy.bonvoyageh.service.place;
 
-import com.ssafy.bonvoyageh.model.place.PlaceDetilaDto;
+import com.ssafy.bonvoyageh.model.place.PlaceDetailDto;
 import com.ssafy.bonvoyageh.model.place.PlaceDto;
 import com.ssafy.bonvoyageh.model.review.ReviewDto;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,7 @@ public class PlaceServiceImpl implements PlaceService{
     }
 
     @Override
-    public List<PlaceDetilaDto> searchDetail(int placeId) throws Exception {
+    public List<PlaceDetailDto> searchDetail(int placeId) throws Exception {
         return null;
     }
 

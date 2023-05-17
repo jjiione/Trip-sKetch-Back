@@ -4,4 +4,15 @@
 
 <mapper namespace="com.ssafy.bonvoyageh.repository.place.PlaceDao">
 
+    <resultMap type="boardDto" id="article">
+        <result column="article_id" property="articleId"/>
+        <result column="user_id" property="userId"/>
+        <result column="title" property="title"/>
+        <result column="content" property="content"/>
+        <result column="hit" property="hit"/>
+        <result column="createtime" property="createtime"/>
+    </resultMap>
+
+
+
 </mapper>

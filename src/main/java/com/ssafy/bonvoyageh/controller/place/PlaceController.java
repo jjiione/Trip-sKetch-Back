@@ -1,11 +1,10 @@
 package com.ssafy.bonvoyageh.controller.place;
 
-import com.ssafy.bonvoyageh.model.place.PlaceDetilaDto;
+import com.ssafy.bonvoyageh.model.place.PlaceDetailDto;
 import com.ssafy.bonvoyageh.model.place.PlaceDto;
 import com.ssafy.bonvoyageh.model.review.ReviewDto;
 import com.ssafy.bonvoyageh.service.place.PlaceService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -31,8 +30,8 @@ public class PlaceController {
     }
 
     @GetMapping("/{placeId}/detail")
-    public List<PlaceDetilaDto> searchDetail(@PathVariable("placeid") int placeId) {
-        List<PlaceDetilaDto> list = new ArrayList<>();
+    public List<PlaceDetailDto> searchDetail(@PathVariable("placeid") int placeId) {
+        List<PlaceDetailDto> list = new ArrayList<>();
         return list;
     }
 
