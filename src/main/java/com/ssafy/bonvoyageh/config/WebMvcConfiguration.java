@@ -12,7 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Configuration
-//@MapperScan(basePackages = {"com.ssafy.**.mapper"})
+//@MapperScan(basePackages = {"com.ssafy.**.repository"})
 public class WebMvcConfiguration implements WebMvcConfigurer{
 	
 	private final List<String> patterns = Arrays.asList("/article/*", "/admin/**", "/user/list");

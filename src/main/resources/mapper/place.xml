@@ -4,14 +4,21 @@
 
 <mapper namespace="com.ssafy.bonvoyageh.repository.place.PlaceDao">
 
-    <resultMap type="boardDto" id="article">
-        <result column="article_id" property="articleId"/>
-        <result column="user_id" property="userId"/>
+    <resultMap type="PlaceDto" id="place">
+        <result column="place_id" property="placeId"/>
+        <result column="sido_code" property="sidoCode"/>
         <result column="title" property="title"/>
-        <result column="content" property="content"/>
-        <result column="hit" property="hit"/>
-        <result column="createtime" property="createtime"/>
+        <result column="gugun_code" property="gugunCode"/>
+        <result column="place_type" property="placeType"/>
+
     </resultMap>
+
+
+    <select id="searchKeyword" parameterType="String" resultMap="place">
+        select *
+        from places
+        where title like concat('%', #{word}, '%')
+    </select>
 
 
 

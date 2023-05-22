@@ -22,10 +22,17 @@ public class PlaceController {
 
 
     @GetMapping("/search")
-    public List<PlaceDto> searchKeyword(@RequestParam String keyword) {
-        List<PlaceDto> list = new ArrayList<>();
+    public List<PlaceDto> searchKeyword(@RequestParam String keyword) throws Exception {
+        List<PlaceDto> list = placeService.searchKeyword(keyword);
+        System.out.println(list);
 
 
+        return list;
+    }
+
+    @GetMapping("/recommend")
+    public List<PlaceDto> recommend() throws Exception{
+        List<PlaceDto> list = placeService.recommend();
         return list;
     }
 
