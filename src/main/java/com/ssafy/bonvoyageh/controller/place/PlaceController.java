@@ -2,6 +2,8 @@ package com.ssafy.bonvoyageh.controller.place;
 
 import com.ssafy.bonvoyageh.model.place.PlaceDetailDto;
 import com.ssafy.bonvoyageh.model.place.PlaceDto;
+import com.ssafy.bonvoyageh.model.place.PlaceRecommendDto;
+import com.ssafy.bonvoyageh.model.place.category.ContentType12_AttractionDto;
 import com.ssafy.bonvoyageh.model.review.ReviewDto;
 import com.ssafy.bonvoyageh.service.place.PlaceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,14 +33,14 @@ public class PlaceController {
     }
 
     @GetMapping("/recommend")
-    public List<PlaceDto> recommend() throws Exception{
-        List<PlaceDto> list = placeService.recommend();
+    public List<PlaceRecommendDto> recommend() throws Exception{
+        List<PlaceRecommendDto> list = placeService.recommend();
         return list;
     }
 
     @GetMapping("/{placeId}/detail")
-    public List<PlaceDetailDto> searchDetail(@PathVariable("placeid") int placeId) {
-        List<PlaceDetailDto> list = new ArrayList<>();
+    public List<ContentType12_AttractionDto> searchDetail(@PathVariable("placeId") int placeId) throws Exception {
+        List<ContentType12_AttractionDto> list = placeService.searchDetail(placeId);
         return list;
     }
 

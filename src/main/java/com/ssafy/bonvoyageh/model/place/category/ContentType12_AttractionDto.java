@@ -1,7 +1,10 @@
 package com.ssafy.bonvoyageh.model.place.category;
 
+import lombok.Data;
+
+@Data
 public class ContentType12_AttractionDto {
-    String contentid;
+    int contentid;
     String contenttypeid;
     String heritage1;
     String heritage2;
