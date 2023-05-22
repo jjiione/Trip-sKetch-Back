@@ -7,6 +7,7 @@ import com.ssafy.bonvoyageh.util.PageNavigation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 import java.util.Map;
@@ -23,10 +24,6 @@ public class BoardController {
         this.boardService = boardService;
     }
 
-    @GetMapping(value = {"/", "/index"})
-    public void index(){
-//        commonArticlesList()
-    }
 
     @GetMapping("/common/list")
     public List<BoardDto> commonArticlesList(@RequestParam Map<String, String> map, Model model) throws Exception {
@@ -35,7 +32,7 @@ public class BoardController {
 //        model.addAttribute("pgno", map.get("pgno"));
 //        model.addAttribute("key", map.get("key"));
 //        model.addAttribute("word", map.get("word"));
-        System.out.println(list);
+//        System.out.println(list);
         return list;
     }
 
@@ -90,8 +87,19 @@ public class BoardController {
     }
 
     @PutMapping("/notice/modify")
-    public String modifyNoticeArticle(BoardDto boardDto){
-        return "board/notice/list";
+    public void modifyNoticeArticle(@RequestParam Map<String, String> map) throws Exception {
+//        System.out.println(map.get("articleId"));
+//        System.out.println(map.get("title"));
+//        System.out.println(map.get("content"));
+//        BoardDto boardDto = boardService.getArticle(Integer.parseInt(map.get("articleId")));
+//        System.out.println(boardDto);
+//        boardDto.setTitle(map.get("title"));
+//        boardDto.setContent(map.get("content"));
+//        model.addAttribute("article", boardDto);
+//        model.addAttribute("pgno", map.get("pgno"));
+//        model.addAttribute("key", map.get("key"));
+//        model.addAttribute("word", map.get("word"));
+        boardService.modifyArticle(boardDto);
     }
 
     @DeleteMapping("/notice/{articleid}/delete")
@@ -100,8 +108,9 @@ public class BoardController {
     }
 
     @GetMapping("/notice/{articleid}/view")
-    public String viewNoticeArticle(@PathVariable("articleid") String articleId){
-        return "board/notice/view";
+    public BoardDto viewNoticeArticle(@PathVariable("articleid") int articleId) throws Exception {
+        BoardDto boardDto = boardService.getArticle(articleId);
+        return boardDto;
     }
 
 

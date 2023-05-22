@@ -50,7 +50,7 @@
 		</if>
 	</sql>
 
-	<select id="listArticle" parameterType="map" resultMap="article">
+	<select id="listArticle" parameterType="map" resultType="BoardDto">
 		select c.article_id, c.user_id, c.title, c.content, c.hit, c.create_time, u.user_name
 		from community c, users u
 		where c.user_id = u.user_id
@@ -67,7 +67,7 @@
 		</where>
 	</select>
 
-	<select id="getArticle" parameterType="int" resultMap="viewArticle">
+	<select id="getArticle" parameterType="int" resultType="BoardDto">
 		select c.article_id, c.user_id, c.title, c.content, c.hit, c.create_time, u.user_name
 		from community c, users u
 		where c.user_id = u.user_id
