@@ -39,9 +39,9 @@ public class PlaceController {
     }
 
     @GetMapping("/{placeId}/detail")
-    public List<ContentType12_AttractionDto> searchDetail(@PathVariable("placeId") int placeId) throws Exception {
-        List<ContentType12_AttractionDto> list = placeService.searchDetail(placeId);
-        return list;
+    public ContentType12_AttractionDto searchDetail(@PathVariable("placeId") int placeId) throws Exception {
+        ContentType12_AttractionDto dto = placeService.searchDetail(placeId);
+        return dto;
     }
 
 

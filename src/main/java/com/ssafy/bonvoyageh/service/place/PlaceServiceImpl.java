@@ -33,7 +33,7 @@ public class PlaceServiceImpl implements PlaceService{
     }
 
     @Override
-    public List<ContentType12_AttractionDto> searchDetail(int placeId) throws Exception {
+    public ContentType12_AttractionDto searchDetail(int placeId) throws Exception {
         return placeDao.searchDetail(placeId);
     }
 

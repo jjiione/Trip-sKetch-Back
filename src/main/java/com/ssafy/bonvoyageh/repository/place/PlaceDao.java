@@ -27,8 +27,8 @@ public interface PlaceDao {
             "where p.place_type = 12 order by rand() limit 3")
     List<PlaceRecommendDto> recommend() throws SQLException;
 
-    @Select("select * from attraction_detail_content_type_12 where contentid = ?1")
-    List<ContentType12_AttractionDto> searchDetail(int placeId) throws SQLException;
+//    @Select("select * from attraction_detail_content_type_12 where contentid = #{placeId}")
+    ContentType12_AttractionDto searchDetail(int placeId) throws SQLException;
 //
 //    ReviewDto writeReview(ReviewDto reviewDto) throws SQLException;
 //
