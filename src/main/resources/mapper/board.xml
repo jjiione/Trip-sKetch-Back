@@ -10,7 +10,7 @@
 		<result column="title" property="title"/>
 		<result column="content" property="content"/>
 		<result column="hit" property="hit"/>
-		<result column="createtime" property="createtime"/>
+		<result column="create_time" property="createtime"/>
 	</resultMap>
 
 	<resultMap type="boardDto" id="viewArticle" extends="article">

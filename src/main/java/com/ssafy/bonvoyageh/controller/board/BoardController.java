@@ -5,6 +5,7 @@ import com.ssafy.bonvoyageh.model.board.CommentDto;
 import com.ssafy.bonvoyageh.service.board.BoardService;
 import com.ssafy.bonvoyageh.util.PageNavigation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -15,6 +16,9 @@ import java.util.Map;
 @RestController
 @RequestMapping("/board")
 public class BoardController {
+
+    @Value("${file.path}")
+    private String uploadPath;
 
     private BoardService boardService;
 
@@ -74,7 +78,9 @@ public class BoardController {
     @GetMapping("/notice/list")
     public List<BoardDto> noticeArticlesList(@RequestParam Map<String, String> map, Model model) throws Exception {
         List<BoardDto> list = boardService.listArticle(map);
+//        System.out.println(list);
 //        PageNavigation pageNavigation = boardService.makePageNavigation(map);
+//        System.out.println(pageNavigation);
 //        model.addAttribute("pgno", map.get("pgno"));
 //        model.addAttribute("key", map.get("key"));
 //        model.addAttribute("word", map.get("word"));
@@ -82,17 +88,17 @@ public class BoardController {
     }
 
     @PostMapping("/notice/regist")
-    public String registNoticeArticle(BoardDto boardDto){
-        return "board/notice/list";
+    public void registNoticeArticle(@RequestBody BoardDto boardDto) throws Exception {
+        boardService.writeArticle(boardDto);
     }
 
     @PutMapping("/notice/modify")
-    public void modifyNoticeArticle(@RequestParam Map<String, String> map) throws Exception {
+    public void modifyNoticeArticle(@RequestBody BoardDto boardDto) throws Exception {
 //        System.out.println(map.get("articleId"));
 //        System.out.println(map.get("title"));
 //        System.out.println(map.get("content"));
 //        BoardDto boardDto = boardService.getArticle(Integer.parseInt(map.get("articleId")));
-//        System.out.println(boardDto);
+        System.out.println(boardDto);
 //        boardDto.setTitle(map.get("title"));
 //        boardDto.setContent(map.get("content"));
 //        model.addAttribute("article", boardDto);
@@ -103,8 +109,8 @@ public class BoardController {
     }
 
     @DeleteMapping("/notice/{articleid}/delete")
-    public String deleteNoticeArticle(@PathVariable("articleid") String articleId){
-        return "board/notice/list";
+    public void deleteNoticeArticle(@PathVariable("articleid") int articleId) throws Exception {
+        boardService.deleteArticle(articleId, uploadPath);
     }
 
     @GetMapping("/notice/{articleid}/view")
