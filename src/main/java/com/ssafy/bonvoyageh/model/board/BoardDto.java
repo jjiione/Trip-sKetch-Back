@@ -1,10 +1,12 @@
 package com.ssafy.bonvoyageh.model.board;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Data
+@NoArgsConstructor
 public class BoardDto {
 
 	private int articleId;
