@@ -56,8 +56,8 @@ public class PlaceController {
 
 
     @PostMapping("/review/regist")
-    public ReviewDto writeReview(ReviewDto reviewDto) throws Exception {
-        return placeService.writeReview(reviewDto);
+    public void writeReview(ReviewDto reviewDto) throws Exception {
+        placeService.writeReview(reviewDto);
     }
 
     @DeleteMapping("/review/{reviewId}/delete")

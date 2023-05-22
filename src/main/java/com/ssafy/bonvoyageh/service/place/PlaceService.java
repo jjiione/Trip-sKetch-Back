@@ -20,7 +20,7 @@ public interface PlaceService {
 
     List<ReviewDto> currentReview() throws Exception;
 
-    ReviewDto writeReview(ReviewDto reviewDto) throws Exception;
+    void writeReview(ReviewDto reviewDto) throws Exception;
 
     void deleteReview(@PathVariable("reviewId") String reviewId) throws Exception;
 
