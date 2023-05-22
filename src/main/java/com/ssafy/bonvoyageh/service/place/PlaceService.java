@@ -14,7 +14,11 @@ public interface PlaceService {
 
     List<PlaceRecommendDto> recommend() throws Exception;
 
+    List<String> placeImages(int placeId) throws Exception;
+
     ContentType12_AttractionDto searchDetail(int placeId)throws Exception;
+
+    List<ReviewDto> currentReview() throws Exception;
 
     ReviewDto writeReview(ReviewDto reviewDto) throws Exception;
 

@@ -44,11 +44,20 @@ public class PlaceController {
         return dto;
     }
 
+    @GetMapping("/{placeId}/images")
+    public List<String> placeImages(@PathVariable("placeId") int placeId) throws Exception{
+        return placeService.placeImages(placeId);
+    }
+
+    @GetMapping("/review/current/list")
+    public List<ReviewDto> currentReview() throws Exception {
+        return placeService.currentReview();
+    }
+
 
     @PostMapping("/review/regist")
-    public ReviewDto writeReview(ReviewDto reviewDto){
-        //Todo
-        return reviewDto;
+    public ReviewDto writeReview(ReviewDto reviewDto) throws Exception {
+        return placeService.writeReview(reviewDto);
     }
 
     @DeleteMapping("/review/{reviewId}/delete")

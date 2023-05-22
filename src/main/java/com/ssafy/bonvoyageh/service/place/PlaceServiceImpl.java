@@ -33,13 +33,23 @@ public class PlaceServiceImpl implements PlaceService{
     }
 
     @Override
+    public List<String> placeImages(int placeId) throws Exception {
+        return placeDao.placeImages(placeId);
+    }
+
+    @Override
     public ContentType12_AttractionDto searchDetail(int placeId) throws Exception {
         return placeDao.searchDetail(placeId);
     }
 
     @Override
+    public List<ReviewDto> currentReview() throws Exception {
+        return placeDao.currentReview();
+    }
+
+    @Override
     public ReviewDto writeReview(ReviewDto reviewDto) throws Exception {
-        return null;
+        return placeDao.writeReview(reviewDto);
     }
 
     @Override

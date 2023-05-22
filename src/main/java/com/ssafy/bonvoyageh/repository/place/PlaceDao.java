@@ -29,8 +29,12 @@ public interface PlaceDao {
 
 //    @Select("select * from attraction_detail_content_type_12 where contentid = #{placeId}")
     ContentType12_AttractionDto searchDetail(int placeId) throws SQLException;
+
+    List<String> placeImages(int placeId) throws SQLException;
+
+    List<ReviewDto> currentReview() throws SQLException;
 //
-//    ReviewDto writeReview(ReviewDto reviewDto) throws SQLException;
+    ReviewDto writeReview(ReviewDto reviewDto) throws SQLException;
 //
 //    void deleteReview(@PathVariable("reviewId") String reviewId) throws SQLException;
 //
