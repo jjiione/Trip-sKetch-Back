@@ -2,21 +2,41 @@ package com.ssafy.bonvoyageh.controller.board;
 
 import com.ssafy.bonvoyageh.model.board.BoardDto;
 import com.ssafy.bonvoyageh.model.board.CommentDto;
+import com.ssafy.bonvoyageh.service.board.BoardService;
+import com.ssafy.bonvoyageh.util.PageNavigation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/board")
-public class BoardContoller {
+public class BoardController {
+
+    private BoardService boardService;
+
+    @Autowired
+    public BoardController(BoardService boardService) {
+        super();
+        this.boardService = boardService;
+    }
+
     @GetMapping(value = {"/", "/index"})
-    public String index(){
-        return "index";
+    public void index(){
+//        commonArticlesList()
     }
 
     @GetMapping("/common/list")
-    public String commonArticlesList(List<BoardDto> boardDtoList){
-        return "board/common/list";
+    public List<BoardDto> commonArticlesList(@RequestParam Map<String, String> map, Model model) throws Exception {
+        List<BoardDto> list = boardService.listArticle(map);
+//        PageNavigation pageNavigation = boardService.makePageNavigation(map);
+//        model.addAttribute("pgno", map.get("pgno"));
+//        model.addAttribute("key", map.get("key"));
+//        model.addAttribute("word", map.get("word"));
+        System.out.println(list);
+        return list;
     }
 
     @PostMapping("/common/regist")
@@ -55,8 +75,13 @@ public class BoardContoller {
     }
 
     @GetMapping("/notice/list")
-    public String noticeArticlesList(List<BoardDto> boardDtoList){
-        return "board/notice/list";
+    public List<BoardDto> noticeArticlesList(@RequestParam Map<String, String> map, Model model) throws Exception {
+        List<BoardDto> list = boardService.listArticle(map);
+//        PageNavigation pageNavigation = boardService.makePageNavigation(map);
+//        model.addAttribute("pgno", map.get("pgno"));
+//        model.addAttribute("key", map.get("key"));
+//        model.addAttribute("word", map.get("word"));
+        return list;
     }
 
     @PostMapping("/notice/regist")
