@@ -48,8 +48,8 @@ public class PlaceServiceImpl implements PlaceService{
     }
 
     @Override
-    public ReviewDto writeReview(ReviewDto reviewDto) throws Exception {
-        return placeDao.writeReview(reviewDto);
+    public void writeReview(ReviewDto reviewDto) throws Exception {
+         placeDao.writeReview(reviewDto);
     }
 
     @Override

@@ -34,7 +34,7 @@ public interface PlaceDao {
 
     List<ReviewDto> currentReview() throws SQLException;
 //
-    ReviewDto writeReview(ReviewDto reviewDto) throws SQLException;
+    void writeReview(ReviewDto reviewDto) throws SQLException;
 //
 //    void deleteReview(@PathVariable("reviewId") String reviewId) throws SQLException;
 //
