@@ -10,6 +10,8 @@ import java.util.List;
 public interface PlaceService {
     List<PlaceDto> searchKeyword(String keyword) throws Exception;
 
+    List<PlaceDto> recommend() throws Exception;
+
     List<PlaceDetailDto> searchDetail(int placeId)throws Exception;
 
     ReviewDto writeReview(ReviewDto reviewDto) throws Exception;

@@ -3,14 +3,31 @@ package com.ssafy.bonvoyageh.service.place;
 import com.ssafy.bonvoyageh.model.place.PlaceDetailDto;
 import com.ssafy.bonvoyageh.model.place.PlaceDto;
 import com.ssafy.bonvoyageh.model.review.ReviewDto;
+import com.ssafy.bonvoyageh.repository.place.PlaceDao;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
 public class PlaceServiceImpl implements PlaceService{
+
+    private final  PlaceDao placeDao;
+
+    @Autowired
+    public PlaceServiceImpl(PlaceDao placeDao) {
+        this.placeDao = placeDao;
+    }
+
     @Override
     public List<PlaceDto> searchKeyword(String keyword) throws Exception {
-        return null;
+//        System.out.println("service start");
+
+        return placeDao.searchKeyword(keyword);
+    }
+
+    @Override
+    public List<PlaceDto> recommend() throws Exception {
+        return placeDao.recommend();
     }
 
     @Override

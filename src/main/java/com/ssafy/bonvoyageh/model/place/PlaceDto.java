@@ -1,10 +1,13 @@
 package com.ssafy.bonvoyageh.model.place;
 
-public class PlaceDto {
+import lombok.Data;
+
+@Data
+public class PlaceDto{
     int placeId;
     int sidoCode;
     int gugunCode;
     String title;
-    int placeTypeId;
-    String categoryId;
+    int placeType;
+
 }
