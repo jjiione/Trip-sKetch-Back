@@ -6,7 +6,7 @@
 
 	<resultMap type="userDto" id="user">
 		<result column="user_id" property="userId"/>
-		<result column="user_name" property="userName"/>
+		<result column="user_name" property="name"/>
 	</resultMap>
 	
 	<!-- ADMIN -->
@@ -28,7 +28,7 @@
 
 	<insert id="join" parameterType="userDto">
 		insert into users (user_id, user_pwd, user_name, email, birth, phone, authorization, question, answer)
-		values (#{userId}, #{userPwd},  #{userName}, #{email}, #{birth}, #{phone}, #{authorization}, #{question}, #{answer} )
+		values (#{userId}, #{userPwd},  #{name}, #{email}, #{birth}, #{phone}, #{authorization}, #{question}, #{answer} )
 	</insert>
 
 	<select id="login" parameterType="map" resultMap="user">
@@ -53,7 +53,7 @@
 	<update id="updatePw" parameterType="userDto">
 		update users
 		<trim prefix="set" suffixOverrides=",">
-			<if test="userPwd != null">user_name = #{userName},</if>
+			<if test="userPwd != null">user_name = #{name},</if>
 			<if test="userPwd != null">user_pwd = #{userPwd},</if>
 			<if test="email != null">email = #{email},</if>
 			<if test="birth != null">birth = #{birth},</if>
@@ -67,7 +67,7 @@
 	<update id="modify" parameterType="userDto">
 		update users
 		<trim prefix="set" suffixOverrides=",">
-			<if test="userPwd != null">user_name = #{userName},</if>
+			<if test="userPwd != null">user_name = #{name},</if>
 			<if test="userPwd != null">user_pwd = #{userPwd},</if>
 			<if test="email != null">email = #{email},</if>
 			<if test="birth != null">birth = #{birth},</if>
