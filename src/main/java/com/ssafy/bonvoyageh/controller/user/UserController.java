@@ -57,15 +57,12 @@ public class UserController {
     }
 
     @PostMapping("/regist")
-    public String join(@RequestBody UserDto userDto, Model model) {
+    public void join(@RequestBody UserDto userDto, Model model) {
         logger.debug("memberDto info : {}", userDto);
         try {
             userService.join(userDto);
-            return "redirect:/user/login";
         } catch (Exception e) {
             e.printStackTrace();
-            model.addAttribute("msg", "회원 가입 중 문제 발생!!!");
-            return "error/error";
         }
     }
 
