@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import com.ssafy.vue.exception.UnAuthorizedException;
+import com.ssafy.bonvoyageh.exception.UnAuthorizedException;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;

@@ -31,24 +31,32 @@
 		values (#{userId}, #{userPwd},  #{name}, #{email}, #{birth}, #{phone}, #{authorization}, #{question}, #{answer} )
 	</insert>
 
-	<select id="login" parameterType="map" resultMap="user">
+	<select id="login" parameterType="userDto" resultType="userDto">
 		select user_id, user_name
 		from users
-		where user_id = #{userid} and user_pwd = #{userpwd}
+		where user_id = #{userId} and user_pwd = #{userPwd}
 	</select>
-	
+
 	<!-- ADMIN -->
 <!--	<select id="listuser" resultMap="userAll">-->
 <!--		select user_name, user_id, user_pwd, email, birth, phone, authorization, question, answer, create_time-->
 <!--		from users-->
 <!--		order by user_id-->
 <!--	</select>-->
-	
-	<select id="getUserInfo" parameterType="string" resultMap="userAll">
+
+<!--	<select id="getUserInfo" parameterType="string" resultMap="userAll">-->
+<!--		select user_id, user_name, user_pwd, email, birth, phone, authorization, question, answer, create_time-->
+<!--		from users-->
+<!--		where user_id = #{userId}-->
+<!--	</select>-->
+
+	<select id="userInfo" parameterType="String" resultType="userDto">
 		select user_id, user_name, user_pwd, email, birth, phone, authorization, question, answer, create_time
 		from users
-		where user_id = #{userId}
+		where user_id = #{userid}
 	</select>
+
+
 
 	<update id="updatePw" parameterType="userDto">
 		update users

@@ -32,11 +32,18 @@ public class UserServiceImpl implements UserService {
 		userDao.join(userDto);
 	}
 
-	@Override
-	public UserDto login(Map<String, String> map) throws Exception {
-//		return sqlSession.getMapper(MemberMapper.class).loginMember(map);
-		return userDao.login(map);
-	}
+//	@Override
+//	public UserDto login(Map<String, String> map) throws Exception {
+////		return sqlSession.getMapper(MemberMapper.class).loginMember(map);
+//		return userDao.login(map);
+//	}
+@Override
+	public UserDto login(UserDto userDto) throws Exception {
+	if(userDto.getUserId() == null || userDto.getUserPwd() == null)
+		return null;
+	return userDao.login(userDto);
+//	return sqlSession.getMapper(MemberMapper.class).login(memberDto);
+}
 
 	@Override
 	public void updatePw(Map<String, String> map) throws Exception {
@@ -49,9 +56,15 @@ public class UserServiceImpl implements UserService {
 //		return userDao.listMember(map);
 //	}
 
+//	@Override
+//	public UserDto getUser(String userId) throws Exception {
+//		return userDao.getUserInfo(userId);
+//	}
+
 	@Override
-	public UserDto getUser(String userId) throws Exception {
-		return userDao.getUserInfo(userId);
+	public UserDto userInfo(String userid) throws Exception {
+		return userDao.userInfo(userid);
+//		return sqlSession.getMapper(MemberMapper.class).userInfo(userid);
 	}
 
 	@Override
