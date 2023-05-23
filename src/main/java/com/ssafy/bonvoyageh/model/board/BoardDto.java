@@ -3,6 +3,7 @@ package com.ssafy.bonvoyageh.model.board;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 @Data
@@ -14,7 +15,7 @@ public class BoardDto {
 	private String title;
 	private String content;
 	private int hit;
-	private String createtime;
+	private Timestamp createtime;
 	private List<FileInfoDto> fileInfos;
 	@Override
 	public String toString() {

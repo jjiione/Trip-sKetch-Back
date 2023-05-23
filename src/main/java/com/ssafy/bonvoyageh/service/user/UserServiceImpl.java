@@ -1,5 +1,6 @@
 package com.ssafy.bonvoyageh.service.user;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import com.ssafy.bonvoyageh.model.user.UserDto;
@@ -32,11 +33,18 @@ public class UserServiceImpl implements UserService {
 		userDao.join(userDto);
 	}
 
-	@Override
-	public UserDto login(Map<String, String> map) throws Exception {
-//		return sqlSession.getMapper(MemberMapper.class).loginMember(map);
-		return userDao.login(map);
-	}
+//	@Override
+//	public UserDto login(Map<String, String> map) throws Exception {
+////		return sqlSession.getMapper(MemberMapper.class).loginMember(map);
+//		return userDao.login(map);
+//	}
+@Override
+	public UserDto login(UserDto userDto) throws Exception {
+	if(userDto.getUserId() == null || userDto.getUserPwd() == null)
+		return null;
+	return userDao.login(userDto);
+//	return sqlSession.getMapper(MemberMapper.class).login(memberDto);
+}
 
 	@Override
 	public void updatePw(Map<String, String> map) throws Exception {
@@ -49,9 +57,15 @@ public class UserServiceImpl implements UserService {
 //		return userDao.listMember(map);
 //	}
 
+//	@Override
+//	public UserDto getUser(String userId) throws Exception {
+//		return userDao.getUserInfo(userId);
+//	}
+
 	@Override
-	public UserDto getUser(String userId) throws Exception {
-		return userDao.getUserInfo(userId);
+	public UserDto userInfo(String userid) throws Exception {
+		return userDao.userInfo(userid);
+//		return sqlSession.getMapper(MemberMapper.class).userInfo(userid);
 	}
 
 	@Override
@@ -62,6 +76,27 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void deleteUser(String userId) throws Exception {
 		userDao.delete(userId);
+	}
+
+	@Override
+	public void saveRefreshToken(String userid, String refreshToken) throws Exception {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("userid", userid);
+		map.put("token", refreshToken);
+		userDao.saveRefreshToken(map);
+	}
+
+	@Override
+	public Object getRefreshToken(String userid) throws Exception {
+		return userDao.getRefreshToken(userid);
+	}
+
+	@Override
+	public void deleRefreshToken(String userid) throws Exception {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("userid", userid);
+		map.put("token", null);
+		userDao.deleteRefreshToken(map);
 	}
 
 }
