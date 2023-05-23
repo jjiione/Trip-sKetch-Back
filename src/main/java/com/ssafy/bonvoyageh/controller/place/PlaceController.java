@@ -23,8 +23,8 @@ public class PlaceController {
     }
 
 
-    @GetMapping("/search")
-    public List<PlaceDto> searchKeyword(@RequestParam String keyword) throws Exception {
+    @GetMapping("/search/{keyword}")
+    public List<PlaceDto> searchKeyword(@PathVariable("keyword") String keyword) throws Exception {
         List<PlaceDto> list = placeService.searchKeyword(keyword);
         System.out.println(list);
 

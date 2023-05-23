@@ -4,8 +4,9 @@ import lombok.Data;
 
 @Data
 public class PlaceRecommendDto {
-    int placeId;
+    int contentId;
     String title;
     String gugunName;
     String sidoName;
+    private String imgSrc;
 }

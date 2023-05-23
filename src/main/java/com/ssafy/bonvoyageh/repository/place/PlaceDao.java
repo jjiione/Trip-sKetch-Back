@@ -20,11 +20,12 @@ public interface PlaceDao {
 
     List<PlaceDto> searchKeyword(String keyword) throws SQLException;
 
-    @Select("select p.place_id, p.title, s.sido_name, g.gugun_name\n" +
+    @Select("select p.content_id, p.title, s.sido_name, g.gugun_name, i.img_src\n" +
             "from places p join sido s \n" +
             "on p.sido_code = s.sido_code\n" +
-            "join gugun g on s.sido_code = g.sido_code and g.gugun_code = p.gugun_code " +
-            "where p.place_type = 12 order by rand() limit 3")
+            "join gugun g on s.sido_code = g.sido_code and g.gugun_code = p.gugun_code\n" +
+            "left join place_images i on p.content_id = i.content_id\n" +
+            "where p.content_type_id = 12 order by rand() limit 3")
     List<PlaceRecommendDto> recommend() throws SQLException;
 
 //    @Select("select * from attraction_detail_content_type_12 where contentid = #{placeId}")

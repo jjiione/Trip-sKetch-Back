@@ -4,12 +4,13 @@
 
 <mapper namespace="com.ssafy.bonvoyageh.repository.place.PlaceDao">
 
+    <select id="searchKeyword" parameterType="String" resultType="PlaceDto">
+        select content_id, sido_code, gugun_code, latitude, longitude, content_type_id, title
+        from places
+        where title like concat('%', #{word}, '%')
+        order by title limit 20
+    </select>
 
-<!--    <select id="searchKeyword" parameterType="String" resultMap="place">-->
-<!--        select *-->
-<!--        from places-->
-<!--        where title like concat('%', #{word}, '%')-->
-<!--    </select>-->
 
 
     <select id="searchDetail" parameterType="int" resultType="ContentType12_AttractionDto">

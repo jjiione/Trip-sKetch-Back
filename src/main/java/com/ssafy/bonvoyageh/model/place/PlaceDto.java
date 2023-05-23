@@ -4,10 +4,13 @@ import lombok.Data;
 
 @Data
 public class PlaceDto{
-    int placeId;
+    int contentId;
     int sidoCode;
     int gugunCode;
     String title;
-    int placeType;
+    int contentTypeId;
+    private double latitude;
+    private double longitude;
+
 
 }
