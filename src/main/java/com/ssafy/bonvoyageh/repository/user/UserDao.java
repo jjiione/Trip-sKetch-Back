@@ -21,4 +21,7 @@ public interface UserDao {
 	void delete(String userId) throws SQLException;
 
 	UserDto findID(String userId) throws SQLException;
+	void saveRefreshToken(Map<String, String> map) throws SQLException;
+	Object getRefreshToken(String userid) throws SQLException;
+	void deleteRefreshToken(Map<String, String> map) throws SQLException;
 }

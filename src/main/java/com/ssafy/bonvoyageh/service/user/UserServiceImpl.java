@@ -1,5 +1,6 @@
 package com.ssafy.bonvoyageh.service.user;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import com.ssafy.bonvoyageh.model.user.UserDto;
@@ -75,6 +76,27 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void deleteUser(String userId) throws Exception {
 		userDao.delete(userId);
+	}
+
+	@Override
+	public void saveRefreshToken(String userid, String refreshToken) throws Exception {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("userid", userid);
+		map.put("token", refreshToken);
+		userDao.saveRefreshToken(map);
+	}
+
+	@Override
+	public Object getRefreshToken(String userid) throws Exception {
+		return userDao.getRefreshToken(userid);
+	}
+
+	@Override
+	public void deleRefreshToken(String userid) throws Exception {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("userid", userid);
+		map.put("token", null);
+		userDao.deleteRefreshToken(map);
 	}
 
 }
