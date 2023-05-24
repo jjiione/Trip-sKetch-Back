@@ -5,6 +5,7 @@ import com.ssafy.bonvoyageh.model.place.PlaceDto;
 import com.ssafy.bonvoyageh.model.place.PlaceRecommendDto;
 import com.ssafy.bonvoyageh.model.place.category.ContentType12_AttractionDto;
 import com.ssafy.bonvoyageh.model.review.ReviewDto;
+import com.ssafy.bonvoyageh.model.review.ReviewShowDto;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
@@ -18,7 +19,7 @@ public interface PlaceService {
 
     ContentType12_AttractionDto searchDetail(int placeId)throws Exception;
 
-    List<ReviewDto> currentReview() throws Exception;
+    List<ReviewShowDto> currentReview() throws Exception;
 
     void writeReview(ReviewDto reviewDto) throws Exception;
 

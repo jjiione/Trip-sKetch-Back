@@ -5,6 +5,7 @@ import com.ssafy.bonvoyageh.model.place.PlaceDto;
 import com.ssafy.bonvoyageh.model.place.PlaceRecommendDto;
 import com.ssafy.bonvoyageh.model.place.category.ContentType12_AttractionDto;
 import com.ssafy.bonvoyageh.model.review.ReviewDto;
+import com.ssafy.bonvoyageh.model.review.ReviewShowDto;
 import com.ssafy.bonvoyageh.service.place.PlaceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -50,7 +51,7 @@ public class PlaceController {
     }
 
     @GetMapping("/review/current/list")
-    public List<ReviewDto> currentReview() throws Exception {
+    public List<ReviewShowDto> currentReview() throws Exception {
         return placeService.currentReview();
     }
 

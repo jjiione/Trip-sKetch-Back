@@ -5,6 +5,7 @@ import com.ssafy.bonvoyageh.model.place.PlaceDto;
 import com.ssafy.bonvoyageh.model.place.PlaceRecommendDto;
 import com.ssafy.bonvoyageh.model.place.category.ContentType12_AttractionDto;
 import com.ssafy.bonvoyageh.model.review.ReviewDto;
+import com.ssafy.bonvoyageh.model.review.ReviewShowDto;
 import com.ssafy.bonvoyageh.repository.place.PlaceDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,7 +44,7 @@ public class PlaceServiceImpl implements PlaceService{
     }
 
     @Override
-    public List<ReviewDto> currentReview() throws Exception {
+    public List<ReviewShowDto> currentReview() throws Exception {
         return placeDao.currentReview();
     }
 

@@ -26,10 +26,11 @@
     </select>
 
 
-    <select id="currentReview" resultType="ReviewDto">
-        select *
-        from reviews
-        order by create_time limit 6
+    <select id="currentReview" resultType="ReviewShowDto">
+        select r.place_id, r.create_time, r.content, r.rate, r.user_id, p.title
+        from reviews r join places p
+                            on r.place_id = p.content_id
+        order by create_time desc limit 6
     </select>
 
     <insert id="writeReview" parameterType="ReviewDto">

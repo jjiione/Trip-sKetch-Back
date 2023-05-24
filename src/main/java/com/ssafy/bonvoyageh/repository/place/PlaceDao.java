@@ -5,6 +5,7 @@ import com.ssafy.bonvoyageh.model.place.PlaceDto;
 import com.ssafy.bonvoyageh.model.place.PlaceRecommendDto;
 import com.ssafy.bonvoyageh.model.place.category.ContentType12_AttractionDto;
 import com.ssafy.bonvoyageh.model.review.ReviewDto;
+import com.ssafy.bonvoyageh.model.review.ReviewShowDto;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
@@ -33,7 +34,7 @@ public interface PlaceDao {
 
     List<String> placeImages(int placeId) throws SQLException;
 
-    List<ReviewDto> currentReview() throws SQLException;
+    List<ReviewShowDto> currentReview() throws SQLException;
 //
     void writeReview(ReviewDto reviewDto) throws SQLException;
 //
