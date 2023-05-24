@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("place")
@@ -58,6 +59,7 @@ public class PlaceController {
 
     @PostMapping("/review/regist")
     public void writeReview(ReviewDto reviewDto) throws Exception {
+        System.out.println(reviewDto.toString());
         placeService.writeReview(reviewDto);
     }
 
@@ -70,6 +72,12 @@ public class PlaceController {
     public ReviewDto modifyReview(@PathVariable("reviewId") String reviewId, ReviewDto reviewDto){
 
         return reviewDto;
+    }
+
+    @GetMapping("/sido/list")
+    public Map<String, Object> sidoList() throws Exception {
+        return placeService.sidoList();
+
     }
 
 }

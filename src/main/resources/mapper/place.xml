@@ -34,11 +34,14 @@
     </select>
 
     <insert id="writeReview" parameterType="ReviewDto">
-        insert into reviews (place_id, content, rate)
-        values ( #{placeId}, #{content}, #{rate})
+        insert into reviews (user_id, place_id, content, rate)
+        values (#{userId}, #{placeId}, #{content}, #{rate})
     </insert>
 
-
+    <select id="sidoList"  resultType="Map">
+        select *
+        from sido
+    </select>
 
 
 

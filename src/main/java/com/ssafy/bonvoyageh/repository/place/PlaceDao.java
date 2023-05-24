@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 //@Repository
@@ -41,5 +42,7 @@ public interface PlaceDao {
 //    void deleteReview(@PathVariable("reviewId") String reviewId) throws SQLException;
 //
 //    ReviewDto modifyReview(@PathVariable("reviewId") String reviewId, ReviewDto reviewDto) throws SQLException;
+
+    Map<String, Object> sidoList() throws SQLException;
 
 }

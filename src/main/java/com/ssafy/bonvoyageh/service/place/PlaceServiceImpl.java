@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
+
 @Service
 public class PlaceServiceImpl implements PlaceService{
 
@@ -61,5 +63,10 @@ public class PlaceServiceImpl implements PlaceService{
     @Override
     public ReviewDto modifyReview(String reviewId, ReviewDto reviewDto) throws Exception {
         return null;
+    }
+
+    @Override
+    public Map<String, Object> sidoList() throws Exception {
+        return placeDao.sidoList();
     }
 }

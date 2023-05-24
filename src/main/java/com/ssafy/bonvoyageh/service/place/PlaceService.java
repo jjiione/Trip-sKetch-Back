@@ -9,6 +9,7 @@ import com.ssafy.bonvoyageh.model.review.ReviewShowDto;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
+import java.util.Map;
 
 public interface PlaceService {
     List<PlaceDto> searchKeyword(String keyword) throws Exception;
@@ -26,5 +27,7 @@ public interface PlaceService {
     void deleteReview(@PathVariable("reviewId") String reviewId) throws Exception;
 
     ReviewDto modifyReview(@PathVariable("reviewId") String reviewId, ReviewDto reviewDto) throws Exception;
+
+    Map<String, Object> sidoList() throws Exception;
 
 }
