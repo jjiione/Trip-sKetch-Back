@@ -28,6 +28,6 @@ public interface PlaceService {
 
     ReviewDto modifyReview(@PathVariable("reviewId") String reviewId, ReviewDto reviewDto) throws Exception;
 
-    Map<String, Object> sidoList() throws Exception;
+    List<Map<String, Object>> sidoList() throws Exception;
 
 }

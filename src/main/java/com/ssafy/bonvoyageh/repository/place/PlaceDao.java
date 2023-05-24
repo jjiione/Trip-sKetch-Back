@@ -43,6 +43,6 @@ public interface PlaceDao {
 //
 //    ReviewDto modifyReview(@PathVariable("reviewId") String reviewId, ReviewDto reviewDto) throws SQLException;
 
-    Map<String, Object> sidoList() throws SQLException;
+    List<Map<String, Object>> sidoList() throws SQLException;
 
 }

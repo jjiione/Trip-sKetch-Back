@@ -75,7 +75,7 @@ public class PlaceController {
     }
 
     @GetMapping("/sido/list")
-    public Map<String, Object> sidoList() throws Exception {
+    public List<Map<String, Object>> sidoList() throws Exception {
         return placeService.sidoList();
 
     }

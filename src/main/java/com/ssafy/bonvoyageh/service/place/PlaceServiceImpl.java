@@ -66,7 +66,7 @@ public class PlaceServiceImpl implements PlaceService{
     }
 
     @Override
-    public Map<String, Object> sidoList() throws Exception {
+    public List<Map<String, Object>> sidoList() throws Exception {
         return placeDao.sidoList();
     }
 }
