@@ -24,9 +24,9 @@
 		<result column="save_file" property="saveFile"/>
 	</resultMap>
 
-	<insert id="writeArticle" parameterType="boardDto">
-		insert into community (title, content, user_id, hit, create_time, board_type)
-		values (#{title}, #{content}, #{userId}, 0, now(), #{boardType})
+	<insert id="writeArticle" parameterType="BoardDto">
+		insert into community (title, content, user_id, hit, create_time, board_type, img)
+		values (#{title}, #{content}, #{userId}, 0, now(), "notice", #{img})
 		<selectKey resultType="int" keyProperty="articleId" order="AFTER">
 			select last_insert_id()
 		</selectKey>
