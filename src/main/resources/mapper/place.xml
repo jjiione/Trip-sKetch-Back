@@ -57,5 +57,32 @@
     </select>
 
 
+    <select id="cat1List"  resultType="Map">
+        select *
+        from categories1
+    </select>
+
+    <select id="cat2List" parameterType="String" resultType="Map">
+        select *
+        from categories2
+        where category_id like concat(#{word}, '%')
+    </select>
+
+    <select id="cat3List" parameterType="String" resultType="Map">
+        select *
+        from categories3
+        where category_id like concat(#{word}, '%')
+    </select>
+
+    <select id="searchCat3" parameterType="String" resultType="Map">
+        select p.content_id, p.latitude, p.longitude, p.content_type_id, p.title, c.category_name
+        from places p join attraction_detail a
+                           on p.content_id = a.content_id
+                      join categories3 c on c.category_id = a.cat3
+        where c.category_name = #{cat3}
+        order by title limit 20
+    </select>
+
+
 
 </mapper>

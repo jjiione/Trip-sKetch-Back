@@ -79,4 +79,24 @@ public class PlaceServiceImpl implements PlaceService{
     public List<PlaceDto> searchLocation(Map<String, Object> param) throws Exception {
         return placeDao.searchLocation(param);
     }
+
+    @Override
+    public List<Map<String, Object>> cat1List() throws Exception {
+        return placeDao.cat1List();
+    }
+
+    @Override
+    public List<Map<String, Object>> cat2List(String cat) throws Exception {
+        return placeDao.cat2List(cat);
+    }
+
+    @Override
+    public List<Map<String, Object>> cat3List(String cat) throws Exception {
+        return placeDao.cat3List(cat);
+    }
+
+    @Override
+    public List<Map<String, Object>> searchCat3(String cat3) throws Exception {
+        return placeDao.searchCat3(cat3);
+    }
 }

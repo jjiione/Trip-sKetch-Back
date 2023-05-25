@@ -59,7 +59,7 @@ public class PlaceController {
 
 
     @PostMapping("/review/regist")
-    public void writeReview(ReviewDto reviewDto) throws Exception {
+    public void writeReview(@RequestBody ReviewDto reviewDto) throws Exception {
         System.out.println(reviewDto.toString());
         placeService.writeReview(reviewDto);
     }
@@ -94,6 +94,26 @@ public class PlaceController {
         param.put("gugunCode", gugunCode);
 
         return placeService.searchLocation(param);
+    }
+
+    @GetMapping("/search/category1/list")
+    public List<Map<String, Object>> cat1List() throws Exception {
+        return placeService.cat1List();
+    }
+
+    @GetMapping("/search/category2/{cat}/list")
+    public List<Map<String, Object>> cat2List(@PathVariable("cat") String cat) throws Exception {
+        return placeService.cat2List(cat);
+    }
+
+    @GetMapping("/search/category3/{cat}/list")
+    public List<Map<String, Object>> cat3List(@PathVariable("cat") String cat) throws Exception {
+        return placeService.cat3List(cat);
+    }
+
+    @GetMapping("/search/category/{cat3}/list")
+    public List<Map<String, Object>> searchCat3(@PathVariable("cat3") String cat3) throws Exception{
+        return placeService.searchCat3(cat3);
     }
 
 }

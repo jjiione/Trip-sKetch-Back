@@ -49,5 +49,13 @@ public interface PlaceDao {
 
     List<PlaceDto> searchLocation(Map<String, Object> param) throws SQLException;
 
+    List<Map<String, Object>> cat1List() throws SQLException;
+
+    List<Map<String, Object>> cat2List(String cat) throws SQLException;
+
+    List<Map<String, Object>> cat3List(String cat) throws SQLException;
+
+    List<Map<String, Object>> searchCat3(String cat3) throws SQLException;
+
 
 }

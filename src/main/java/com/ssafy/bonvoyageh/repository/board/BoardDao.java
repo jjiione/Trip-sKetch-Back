@@ -23,5 +23,6 @@ public interface BoardDao {
 //	List<BoardDto> searchArticle(Map<String, Object> param) throws SQLException;
 	void deleteFile(int articleNo) throws Exception;
 	List<FileInfoDto> fileInfoList(int articleNo) throws Exception;
+
 	
 }

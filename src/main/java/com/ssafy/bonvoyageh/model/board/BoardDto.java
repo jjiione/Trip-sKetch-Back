@@ -18,10 +18,20 @@ public class BoardDto {
 	private Timestamp createtime;
 	private String boardType;
 	private List<FileInfoDto> fileInfos;
+	private String img;
+
 	@Override
 	public String toString() {
-		return "BoardDto [articleId=" + articleId + ", userId=" + userId + ", title=" + title + ", content="
-				+ content + ", hit=" + hit + ", createtime=" + createtime + "]";
+		return "BoardDto{" +
+				"articleId=" + articleId +
+				", userId='" + userId + '\'' +
+				", title='" + title + '\'' +
+				", content='" + content + '\'' +
+				", hit=" + hit +
+				", createtime=" + createtime +
+				", boardType='" + boardType + '\'' +
+				", fileInfos=" + fileInfos +
+				", img='" + img + '\'' +
+				'}';
 	}
-
 }

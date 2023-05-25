@@ -34,4 +34,9 @@ public interface PlaceService {
 
     List<PlaceDto> searchLocation(Map<String, Object> param) throws Exception;
 
+    List<Map<String, Object>> cat1List() throws Exception;
+    List<Map<String, Object>> cat2List(String cat) throws Exception;
+    List<Map<String, Object>> cat3List(String cat) throws Exception;
+    List<Map<String, Object>> searchCat3(String cat3) throws Exception;
+
 }
