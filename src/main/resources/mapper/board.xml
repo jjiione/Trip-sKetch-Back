@@ -11,6 +11,7 @@
 		<result column="content" property="content"/>
 		<result column="hit" property="hit"/>
 		<result column="create_time" property="createtime"/>
+		<result column="board_type" property="boardType"/>
 	</resultMap>
 
 	<resultMap type="boardDto" id="viewArticle" extends="article">
@@ -23,9 +24,9 @@
 		<result column="save_file" property="saveFile"/>
 	</resultMap>
 
-	<insert id="writeArticle" parameterType="boardDto">
-		insert into community (title, content, user_id, hit, create_time) 
-		values (#{title}, #{content}, #{userId}, 0, now())
+	<insert id="writeArticle" parameterType="BoardDto">
+		insert into community (title, content, user_id, hit, create_time, board_type)
+		values (#{title}, #{content}, #{userId}, 0, now(), notice)
 		<selectKey resultType="int" keyProperty="articleId" order="AFTER">
 			select last_insert_id()
 		</selectKey>

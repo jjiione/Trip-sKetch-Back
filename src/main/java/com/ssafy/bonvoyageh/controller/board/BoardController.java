@@ -31,6 +31,7 @@ public class BoardController {
 
     @GetMapping("/common/list")
     public List<BoardDto> commonArticlesList(@RequestParam Map<String, String> map, Model model) throws Exception {
+        map.put("board_type", "common");
         List<BoardDto> list = boardService.listArticle(map);
 //        PageNavigation pageNavigation = boardService.makePageNavigation(map);
 //        model.addAttribute("pgno", map.get("pgno"));
@@ -41,24 +42,26 @@ public class BoardController {
     }
 
     @PostMapping("/common/regist")
-    public String registCommonArticle(BoardDto boardDto){
-        return "board/common/list";
+    public void registCommonArticle(@RequestBody BoardDto boardDto) throws Exception {
+        boardService.writeArticle(boardDto);
     }
 
     @PutMapping("/common/modify")
-    public String modifyCommonArticle(BoardDto boardDto){
-        return "board/common/list";
+    public void modifyCommonArticle(@RequestBody BoardDto boardDto) throws Exception {
+        boardService.modifyArticle(boardDto);
     }
 
     @DeleteMapping("/common/{articleid}/delete")
-    public String deleteCommonArticle(@PathVariable("articleid") String articleId){
-        return "board/common/list";
+    public void deleteCommonArticle(@PathVariable("articleid") int articleId) throws Exception {
+        boardService.deleteArticle(articleId, uploadPath);
     }
 
     @GetMapping("/common/{articleid}/view")
-    public String viewCommonArticle(@PathVariable("articleid") String articleId){
-        return "board/common/view";
+    public BoardDto viewCommonArticle(@PathVariable("articleid") int articleId) throws Exception {
+        BoardDto boardDto = boardService.getArticle(articleId);
+        return boardDto;
     }
+
 
     @PostMapping("/comment/{articleid}/regist")
     public String registComment(@PathVariable("articleid") String articleId, CommentDto commentDto){
@@ -98,7 +101,6 @@ public class BoardController {
 //        System.out.println(map.get("title"));
 //        System.out.println(map.get("content"));
 //        BoardDto boardDto = boardService.getArticle(Integer.parseInt(map.get("articleId")));
-        System.out.println(boardDto);
 //        boardDto.setTitle(map.get("title"));
 //        boardDto.setContent(map.get("content"));
 //        model.addAttribute("article", boardDto);

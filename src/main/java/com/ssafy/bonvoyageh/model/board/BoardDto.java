@@ -16,6 +16,7 @@ public class BoardDto {
 	private String content;
 	private int hit;
 	private Timestamp createtime;
+	private String boardType;
 	private List<FileInfoDto> fileInfos;
 	@Override
 	public String toString() {
