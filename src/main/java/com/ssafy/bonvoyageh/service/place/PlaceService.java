@@ -30,4 +30,8 @@ public interface PlaceService {
 
     List<Map<String, Object>> sidoList() throws Exception;
 
+    List<Map<String, Object>> gugunList(int sidoCode) throws Exception;
+
+    List<PlaceDto> searchLocation(Map<String, Object> param) throws Exception;
+
 }

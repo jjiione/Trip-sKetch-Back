@@ -69,4 +69,14 @@ public class PlaceServiceImpl implements PlaceService{
     public List<Map<String, Object>> sidoList() throws Exception {
         return placeDao.sidoList();
     }
+
+    @Override
+    public List<Map<String, Object>> gugunList(int sidoCode) throws Exception {
+        return placeDao.gugunList(sidoCode);
+    }
+
+    @Override
+    public List<PlaceDto> searchLocation(Map<String, Object> param) throws Exception {
+        return placeDao.searchLocation(param);
+    }
 }

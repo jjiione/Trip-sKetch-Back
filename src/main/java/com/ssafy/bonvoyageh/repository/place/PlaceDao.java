@@ -45,4 +45,9 @@ public interface PlaceDao {
 
     List<Map<String, Object>> sidoList() throws SQLException;
 
+    List<Map<String, Object>> gugunList(int sidoCode) throws SQLException;
+
+    List<PlaceDto> searchLocation(Map<String, Object> param) throws SQLException;
+
+
 }

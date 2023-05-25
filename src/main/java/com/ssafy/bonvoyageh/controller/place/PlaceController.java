@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -78,6 +79,21 @@ public class PlaceController {
     public List<Map<String, Object>> sidoList() throws Exception {
         return placeService.sidoList();
 
+    }
+
+    @GetMapping("/gugun/{sido_code}/list")
+    public List<Map<String, Object>> gugunList(@PathVariable("sido_code") int sidoCode) throws Exception {
+        return placeService.gugunList(sidoCode);
+
+    }
+
+    @GetMapping("/search/location/{sido_code}/{gugun_code}")
+    public List<PlaceDto> searchLocation(@PathVariable("sido_code") int sidoCode, @PathVariable("gugun_code") int gugunCode) throws Exception {
+        Map<String, Object> param = new HashMap<>();
+        param.put("sidoCode", sidoCode);
+        param.put("gugunCode", gugunCode);
+
+        return placeService.searchLocation(param);
     }
 
 }
