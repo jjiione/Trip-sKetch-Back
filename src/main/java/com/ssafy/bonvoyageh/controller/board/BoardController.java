@@ -31,7 +31,7 @@ public class BoardController {
 
     @GetMapping("/common/list")
     public List<BoardDto> commonArticlesList(@RequestParam Map<String, String> map, Model model) throws Exception {
-        map.put("board_type", "common");
+        map.put("boardType", "common");
         List<BoardDto> list = boardService.listArticle(map);
 //        PageNavigation pageNavigation = boardService.makePageNavigation(map);
 //        model.addAttribute("pgno", map.get("pgno"));
@@ -43,6 +43,7 @@ public class BoardController {
 
     @PostMapping("/common/regist")
     public void registCommonArticle(@RequestBody BoardDto boardDto) throws Exception {
+        boardDto.setBoardType("common");
         boardService.writeArticle(boardDto);
     }
 
@@ -80,6 +81,7 @@ public class BoardController {
 
     @GetMapping("/notice/list")
     public List<BoardDto> noticeArticlesList(@RequestParam Map<String, String> map, Model model) throws Exception {
+        map.put("boardType", "notice");
         List<BoardDto> list = boardService.listArticle(map);
 //        System.out.println(list);
 //        PageNavigation pageNavigation = boardService.makePageNavigation(map);
@@ -92,6 +94,7 @@ public class BoardController {
 
     @PostMapping("/notice/regist")
     public void registNoticeArticle(@RequestBody BoardDto boardDto) throws Exception {
+        boardDto.setBoardType("notice");
         boardService.writeArticle(boardDto);
     }
 

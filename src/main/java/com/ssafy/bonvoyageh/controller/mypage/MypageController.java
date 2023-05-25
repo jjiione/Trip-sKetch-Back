@@ -1,14 +1,24 @@
 package com.ssafy.bonvoyageh.controller.mypage;
 
+import com.ssafy.bonvoyageh.model.user.UserDto;
+import com.ssafy.bonvoyageh.service.user.UserService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/user/mypage")
+@RequestMapping("/mypage")
 public class MypageController {
 
-    @GetMapping("/userinfo")
-    public String userinfo() {
-        return "mypage/join";
+    private UserService userService;
+
+    public MypageController(UserService userService){
+        super();
+        this.userService = userService;
+    }
+
+    @PutMapping("/userinfo")
+    public void modifyUserinfo(@RequestBody UserDto userDto) throws Exception {
+        System.out.println(userDto.toString());
+        userService.updateUser(userDto);
     }
 
     @GetMapping("/reviews")

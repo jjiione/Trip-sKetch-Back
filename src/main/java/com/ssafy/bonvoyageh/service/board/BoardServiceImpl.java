@@ -48,6 +48,7 @@ public class BoardServiceImpl implements BoardService {
 		int start = pgNo * SizeConstant.LIST_SIZE - SizeConstant.LIST_SIZE;
 		param.put("start", start);
 		param.put("listsize", SizeConstant.LIST_SIZE);
+		param.put("boardType", map.get("boardType"));
 
 		return boardDao.listArticle(param);
 	}
@@ -83,6 +84,7 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public BoardDto getArticle(int articleNo) throws Exception {
+		updateHit(articleNo);
 		return boardDao.getArticle(articleNo);
 	}
 
