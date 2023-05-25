@@ -24,9 +24,9 @@
 		<result column="save_file" property="saveFile"/>
 	</resultMap>
 
-	<insert id="writeArticle" parameterType="BoardDto">
-		insert into community (title, content, user_id, hit, create_time, board_type, img)
-		values (#{title}, #{content}, #{userId}, 0, now(), "notice", #{img})
+	<insert id="writeArticle" parameterType="boardDto">
+		insert into community (title, content, user_id, hit, create_time, board_type)
+		values (#{title}, #{content}, #{userId}, 0, now(), #{boardType})
 		<selectKey resultType="int" keyProperty="articleId" order="AFTER">
 			select last_insert_id()
 		</selectKey>
@@ -54,7 +54,7 @@
 	<select id="listArticle" parameterType="map" resultType="BoardDto">
 		select c.article_id, c.user_id, c.title, c.content, c.hit, c.create_time, u.user_name
 		from community c, users u
-		where c.user_id = u.user_id
+		where c.user_id = u.user_id and c.board_type = #{boardType}
 		<include refid="search"></include>
 		order by c.article_id desc
 		limit #{start}, #{listsize}

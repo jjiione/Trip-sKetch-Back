@@ -1,21 +1,32 @@
 package com.ssafy.bonvoyageh.model.user;
 
+import lombok.Data;
+
 public class UserDto {
     private String userId;
     private String userPwd;
     private String email;
-    private String name;
+    private String userName;
     private String birth;
+
     private String phone;
     private String question;
     private String answer;
+
     private String authorization;
-    private String createTime;
+    private String createtime;
 
     public String getUserPwd() {
         return userPwd;
     }
 
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
     public void setUserPwd(String userPwd) {
         this.userPwd = userPwd;
     }
@@ -28,12 +39,12 @@ public class UserDto {
         this.userId = userId;
     }
 
-    public String getCreateTime() {
-        return createTime;
+    public String getcreatetime() {
+        return createtime;
     }
 
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
+    public void setcreatetime(String createtime) {
+        this.createtime = createtime;
     }
 
     public String getQuestion() {
@@ -68,13 +79,6 @@ public class UserDto {
         this.email = email;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getPhone() {
         return phone;
@@ -90,5 +94,21 @@ public class UserDto {
 
     public void setBirth(String birth) {
         this.birth = birth;
+    }
+
+    @Override
+    public String toString() {
+        return "UserDto{" +
+                "userId='" + userId + '\'' +
+                ", userPwd='" + userPwd + '\'' +
+                ", email='" + email + '\'' +
+                ", userName='" + userName + '\'' +
+                ", birth='" + birth + '\'' +
+                ", phone='" + phone + '\'' +
+                ", question='" + question + '\'' +
+                ", answer='" + answer + '\'' +
+                ", authorization='" + authorization + '\'' +
+                ", createtime='" + createtime + '\'' +
+                '}';
     }
 }

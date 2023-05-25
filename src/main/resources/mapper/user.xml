@@ -6,7 +6,7 @@
 
 	<resultMap type="userDto" id="user">
 		<result column="user_id" property="userId"/>
-		<result column="user_name" property="name"/>
+		<result column="user_name" property="userName"/>
 	</resultMap>
 	
 	<!-- ADMIN -->
@@ -18,6 +18,7 @@
 		<result column="authorization" property="authorization"/>
 		<result column="question" property="question"/>
 		<result column="answer" property="answer"/>
+		<result column="create_time" property="createtime"/>
 	</resultMap>
 
 	<select id="idCheck" parameterType="String" resultType="int">
@@ -28,7 +29,7 @@
 
 	<insert id="join" parameterType="userDto">
 		insert into users (user_id, user_pwd, user_name, email, birth, phone, authorization, question, answer)
-		values (#{userId}, #{userPwd},  #{name}, #{email}, #{birth}, #{phone}, #{authorization}, #{question}, #{answer} )
+		values (#{userId}, #{userPwd},  #{userName}, #{email}, #{birth}, #{phone}, #{authorization}, #{question}, #{answer} )
 	</insert>
 
 	<select id="login" parameterType="userDto" resultType="userDto">
@@ -50,7 +51,7 @@
 <!--		where user_id = #{userId}-->
 <!--	</select>-->
 
-	<select id="userInfo" parameterType="String" resultType="userDto">
+	<select id="userInfo" parameterType="String" resultType="UserDto">
 		select user_id, user_name, user_pwd, email, birth, phone, authorization, question, answer, create_time
 		from users
 		where user_id = #{userid}
@@ -61,7 +62,7 @@
 	<update id="updatePw" parameterType="userDto">
 		update users
 		<trim prefix="set" suffixOverrides=",">
-			<if test="userPwd != null">user_name = #{name},</if>
+			<if test="userPwd != null">user_name = #{userName},</if>
 			<if test="userPwd != null">user_pwd = #{userPwd},</if>
 			<if test="email != null">email = #{email},</if>
 			<if test="birth != null">birth = #{birth},</if>
@@ -72,10 +73,11 @@
 		where user_id = #{userId}
 	</update>
 	
-	<update id="modify" parameterType="userDto">
+	<update id="modify" parameterType="UserDto">
 		update users
 		<trim prefix="set" suffixOverrides=",">
-			<if test="userPwd != null">user_name = #{name},</if>
+			<if test="userName != null">user_name = #{userName},</if>
+			<if test="userId != null">user_id = #{userId},</if>
 			<if test="userPwd != null">user_pwd = #{userPwd},</if>
 			<if test="email != null">email = #{email},</if>
 			<if test="birth != null">birth = #{birth},</if>

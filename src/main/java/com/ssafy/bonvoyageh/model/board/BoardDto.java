@@ -15,7 +15,7 @@ public class BoardDto {
 	private String title;
 	private String content;
 	private int hit;
-	private Timestamp createtime;
+	private String createtime;
 	private String boardType;
 	private List<FileInfoDto> fileInfos;
 	private String img;
