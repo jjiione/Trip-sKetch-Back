@@ -130,4 +130,9 @@ public class PlaceController {
         return placeService.searchCat3(cat3);
     }
 
+    @GetMapping("/myreview/{user_id}")
+    public List<ReviewShowDto> myReview(@PathVariable("user_id") String userId) throws Exception{
+        return placeService.myReview(userId);
+    }
+
 }

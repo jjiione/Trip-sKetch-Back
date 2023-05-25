@@ -44,4 +44,6 @@ public interface PlaceService {
     List<Map<String, Object>> cat3List(String cat) throws Exception;
     List<Map<String, Object>> searchCat3(String cat3) throws Exception;
 
+    List<ReviewShowDto> myReview(String userId) throws Exception;
+
 }

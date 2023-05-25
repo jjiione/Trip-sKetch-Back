@@ -110,4 +110,9 @@ public class PlaceServiceImpl implements PlaceService{
     public List<Map<String, Object>> searchCat3(String cat3) throws Exception {
         return placeDao.searchCat3(cat3);
     }
+
+    @Override
+    public List<ReviewShowDto> myReview(String userId) throws Exception {
+        return placeDao.myReview(userId);
+    }
 }

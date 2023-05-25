@@ -61,5 +61,7 @@ public interface PlaceDao {
 
     List<Map<String, Object>> searchCat3(String cat3) throws SQLException;
 
+    List<ReviewShowDto> myReview(String userId) throws SQLException;
+
 
 }
