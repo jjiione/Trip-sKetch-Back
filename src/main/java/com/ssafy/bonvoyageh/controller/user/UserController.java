@@ -45,15 +45,15 @@ public class UserController {
         return null;
     }
 
-    @GetMapping("/find-password")
-    public String findPassword() {
-        return "user/find-password";
+    @GetMapping("/find-password/{userid}")
+    public UserDto findPassword(@PathVariable("userid") String userid) throws Exception {
+        UserDto userDto = userService.userInfo(userid);
+        return userDto;
     }
 
     @PutMapping("/modify-password")
-    public String modifyPassword(UserDto userDto) {
-        //Todo
-        return null;
+    public void modifyPassword(@RequestBody UserDto userDto) throws Exception {
+        userService.updateUser(userDto);
     }
 
     @GetMapping("/regist")

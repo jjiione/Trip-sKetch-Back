@@ -17,7 +17,6 @@ public class MypageController {
 
     @PutMapping("/userinfo")
     public void modifyUserinfo(@RequestBody UserDto userDto) throws Exception {
-        System.out.println(userDto.toString());
         userService.updateUser(userDto);
     }
 
