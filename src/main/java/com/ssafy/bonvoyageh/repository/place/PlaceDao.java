@@ -22,6 +22,8 @@ public interface PlaceDao {
 
     List<PlaceDto> searchKeyword(String keyword) throws SQLException;
 
+    Map<String, Object> searchPlace(int placeId) throws SQLException;
+
     @Select("select p.content_id, p.title, s.sido_name, g.gugun_name, i.img_src\n" +
             "from places p join sido s \n" +
             "on p.sido_code = s.sido_code\n" +
@@ -34,6 +36,8 @@ public interface PlaceDao {
     ContentType12_AttractionDto searchDetail(int placeId) throws SQLException;
 
     List<String> placeImages(int placeId) throws SQLException;
+
+    List<String> placeReviewImages(int placeId) throws SQLException;
 
     List<ReviewShowDto> currentReview() throws SQLException;
 //

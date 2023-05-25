@@ -13,6 +13,7 @@ public class ReviewDto {
     String content;
     float rate;
     String userId;
+    String img;
 
     @Override
     public String toString() {

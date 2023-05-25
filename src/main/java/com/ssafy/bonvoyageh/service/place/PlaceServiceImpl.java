@@ -10,6 +10,7 @@ import com.ssafy.bonvoyageh.repository.place.PlaceDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
@@ -31,6 +32,11 @@ public class PlaceServiceImpl implements PlaceService{
     }
 
     @Override
+    public Map<String, Object> searchPlace(int placeId) throws Exception {
+        return placeDao.searchPlace(placeId);
+    }
+
+    @Override
     public List<PlaceRecommendDto> recommend() throws Exception {
         return placeDao.recommend();
     }
@@ -38,6 +44,11 @@ public class PlaceServiceImpl implements PlaceService{
     @Override
     public List<String> placeImages(int placeId) throws Exception {
         return placeDao.placeImages(placeId);
+    }
+
+    @Override
+    public List<String> placeReviewImages(int placeId) throws SQLException {
+        return placeDao.placeReviewImages(placeId);
     }
 
     @Override

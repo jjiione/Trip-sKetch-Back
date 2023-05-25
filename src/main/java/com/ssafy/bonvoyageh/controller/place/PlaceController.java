@@ -26,6 +26,15 @@ public class PlaceController {
     }
 
 
+    @GetMapping("/search/{placeId}/place")
+    public Map<String, Object>  searchPlace(@PathVariable("placeId") int placeId) throws Exception{
+        Map<String, Object> list =  placeService.searchPlace(placeId);
+        System.out.println(list);
+        return list;
+    }
+
+
+
     @GetMapping("/search/{keyword}")
     public List<PlaceDto> searchKeyword(@PathVariable("keyword") String keyword) throws Exception {
         List<PlaceDto> list = placeService.searchKeyword(keyword);
@@ -50,6 +59,11 @@ public class PlaceController {
     @GetMapping("/{placeId}/images")
     public List<String> placeImages(@PathVariable("placeId") int placeId) throws Exception{
         return placeService.placeImages(placeId);
+    }
+
+    @GetMapping("/{placeId}/images/review")
+    public List<String> placeReviewImages(@PathVariable("placeId") int placeId) throws Exception{
+        return placeService.placeReviewImages(placeId);
     }
 
     @GetMapping("/review/current/list")

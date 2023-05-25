@@ -8,15 +8,20 @@ import com.ssafy.bonvoyageh.model.review.ReviewDto;
 import com.ssafy.bonvoyageh.model.review.ReviewShowDto;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
 public interface PlaceService {
     List<PlaceDto> searchKeyword(String keyword) throws Exception;
 
+    Map<String, Object> searchPlace(int placeId) throws Exception;
+
     List<PlaceRecommendDto> recommend() throws Exception;
 
     List<String> placeImages(int placeId) throws Exception;
+
+    List<String> placeReviewImages(int placeId) throws SQLException;
 
     ContentType12_AttractionDto searchDetail(int placeId)throws Exception;
 

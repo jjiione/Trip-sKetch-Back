@@ -11,6 +11,15 @@
         order by title limit 20
     </select>
 
+    <select id="searchPlace" parameterType="int" resultType="Map">
+        select p.content_id, p.title, s.sido_name, g.gugun_name
+            from places p join sido s
+            on p.sido_code = s.sido_code
+            join gugun g on s.sido_code = g.sido_code and g.gugun_code = p.gugun_code
+            where p.content_id = #{placeId}
+
+    </select>
+
 
 
     <select id="searchDetail" parameterType="int" resultType="ContentType12_AttractionDto">
@@ -25,6 +34,12 @@
         where content_id = #{placeId}
     </select>
 
+    <select id="placeReviewImages" parameterType="int" resultType="String">
+        select img
+        from reviews
+        where place_id = #{placeId}
+    </select>
+
 
     <select id="currentReview" resultType="ReviewShowDto">
         select r.place_id, r.create_time, r.content, r.rate, r.user_id, p.title
@@ -34,8 +49,8 @@
     </select>
 
     <insert id="writeReview" parameterType="ReviewDto">
-        insert into reviews (user_id, place_id, content, rate)
-        values (#{userId}, #{placeId}, #{content}, #{rate})
+        insert into reviews (user_id, place_id, content, rate, img)
+        values (#{userId}, #{placeId}, #{content}, #{rate}, #{img})
     </insert>
 
     <select id="sidoList"  resultType="Map">
