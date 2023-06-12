@@ -1,10 +1,5 @@
-# 서울 10반 EnjoyTrip 관통 프로젝트
+# Trips Ketch - Back-End 
 
-<p align="center">
-  <br>
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3gLsznyvXmyYnfvz44cJJOt1vtoFwuNfgYeZIapie_g&s">
-  <br>
-</p>
 
 
 ##  📑 프로젝트 개요
